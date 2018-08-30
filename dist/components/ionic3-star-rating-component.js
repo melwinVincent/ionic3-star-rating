@@ -1,10 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { Events } from 'ionic-angular';
-var HTML_TEMPLATE = "\n<div class=\"ionic3-star-rating\">\n  <button *ngFor=\"let index of [0,1,2,3,4]\" id=\"{{index}}\" ion-button icon-only (click)=\"changeRating($event)\" [ngClass]=\"{'rated' : index < rating}\">\n    <ion-icon name=\"star\"></ion-icon>\n  </button>\n</div>\n";
-var CSS_STYLE = "\n    .ionic3-star-rating .button {\n        height: auto;\n        background: none;\n        color: #f4f4f4;\n        box-shadow: none;\n        -webkit-box-shadow: none;\n        width: 28px;\n    }\n    .ionic3-star-rating .button ion-icon {\n        font-size: 32px;\n    }\n    .ionic3-star-rating .button.rated ion-icon {\n      color : #488aff\n    }\n";
+var HTML_TEMPLATE = "\n<div class=\"ionic3-star-rating\">\n  <button *ngFor=\"let index of [0,1,2,3,4]\" id=\"{{index}}\" ion-button icon-only (click)=\"changeRating($event)\">\n    <ion-icon [ngStyle]=\"{'color':index < this.Math.round(this.parseFloat(rating)) ? activeColor : defaultColor }\" name=\"{{index < this.Math.round(this.parseFloat(rating)) ? activeIcon : defaultIcon}}\"></ion-icon>\n  </button>\n</div>\n";
+var CSS_STYLE = "\n    .ionic3-star-rating .button {\n        height: 28px;\n        background: none;\n        box-shadow: none;\n        -webkit-box-shadow: none;\n        width: 28px;\n    }\n    .ionic3-star-rating .button ion-icon {\n        font-size: 32px;\n    }\n";
 var StarRating = (function () {
     function StarRating(events) {
         this.events = events;
+        this.rating = 3;
+        this.readonly = "false";
+        this.activeColor = '#488aff';
+        this.defaultColor = '#f4f4f4';
+        this.activeIcon = 'ios-star';
+        this.defaultIcon = 'ios-star-outline';
+        this.Math = Math;
+        this.parseFloat = parseFloat;
     }
     StarRating.prototype.changeRating = function (event) {
         if (this.readonly && this.readonly === "true")
@@ -27,6 +35,10 @@ var StarRating = (function () {
     StarRating.propDecorators = {
         "rating": [{ type: Input },],
         "readonly": [{ type: Input },],
+        "activeColor": [{ type: Input },],
+        "defaultColor": [{ type: Input },],
+        "activeIcon": [{ type: Input },],
+        "defaultIcon": [{ type: Input },],
     };
     return StarRating;
 }());

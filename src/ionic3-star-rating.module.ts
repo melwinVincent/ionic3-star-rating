@@ -1,5 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { StarRating } from './components/ionic3-star-rating-component';
+import { StarRating } from 'ionic3-star-rating-component';
 import { IonicModule } from 'ionic-angular';
  
 @NgModule({
