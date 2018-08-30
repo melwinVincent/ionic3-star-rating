@@ -1,0 +1,36 @@
+{
+  "name": "ionic3-star-rating",
+  "version": "0.0.1",
+  "description": "A simple component for star rating",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "ngc": "ngc",
+    "publishPackage": "npm run ngc && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melwinVincent/ionic3-star-rating.git"
+  },
+  "keywords": [],
+  "author": "Melwin Vincent Cheeran",
+  "license": "MIT",
+  "homepage": "https://github.com/melwinVincent",
+  "devDependencies": {
+    "@angular/common": "5.0.0",
+    "@angular/compiler": "5.0.0",
+    "@angular/compiler-cli": "5.0.0",
+    "@angular/core": "5.0.0",
+    "@angular/forms": "5.0.0",
+    "@angular/platform-browser": "5.0.0",
+    "@angular/platform-browser-dynamic": "5.0.0",
+    "@types/node": "^9.4.6",
+    "ionic-angular": "3.9.2",
+    "rxjs": "5.5.2",
+    "typescript": "2.4.2",
+    "zone.js": "0.8.18"
+  }
+}
