@@ -1,15 +1,30 @@
 # Ionic3 Star Rating
 
+You can give your custom icons, custom color and also make it read only
+
 # Step-1
 
 ### add the ionic3-star-rating component in your page (parent component) as follows
 
-`<ionic3-star-rating readonly="false" [rating]="3"></ionic3-star-rating>`
+```
+    <ionic3-star-rating 
+        activeIcon = "ios-star"
+        defaultIcon = "ios-star-outline"
+        activeColor = "#488aff" 
+        defaultColor = "#f4f4f4"
+        readonly="false"
+        [rating]="3">
+    </ionic3-star-rating>
+```
 
-* readonly (optional) is default "false". change to "true" to make it read only
-* rating (mandatory) should be provided, is of type number (assign any number from 1 to 5). If the rating is of type string as per your API response, then use parseInt funtion as follows 
+## Options (all are optional, default values are set in the component)
 
-`<ionic3-star-rating readonly="false" [rating]="parseInt('3')"></ionic3-star-rating>`
+* activeIcon : can specify the icon name for active rating (icon name should be from the https://ionicframework.com/docs/ionicons/  ,  default is set to 'ios-star');
+* defaultIcon : can specify the default icon name (icon name should be from the https://ionicframework.com/docs/ionicons/  , default is set to 'ios-star-outline');
+* activeColor : can specify the active color for the active rating icon (should be a valid color code, default is set to '#488aff')
+* defaultColor : can specify the default color for the rating icon (should be a valid color code, default is set to '#f4f4f4')
+* readonly : default is set to "false", change to "true" and make it read only. End user won't be able to change the rating then.
+* rating : default is set to 3. input can be of type **number** or **string** (*assign any number from 1 to 5, floating numbers are also accepted, Math.round(parseFloat(rating) is done for all inputs*). 
 
 # Step-2
 
