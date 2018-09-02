@@ -58,4 +58,4 @@ Subscribe to the event **star-rating:changed** in the constructor of the parent 
 `events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});`
 
 ## Contact
-gmail : melwin.vincent.90@gmai.com
+gmail : melwin.vincent.90@gmail.com
