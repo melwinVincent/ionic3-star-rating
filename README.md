@@ -1,6 +1,7 @@
-# Ionic Star Rating
+# Ionic3 Star Rating
 
 You can give your custom icons, custom color and also make it read only. Simple steps to integrate with your Ionic 2 or Ionic 3 projects.
+ionic-star-rating is deprecated, use npm i ionic3-star-rating instead. 
 
 # How to use
 
