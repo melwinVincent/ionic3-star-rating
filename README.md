@@ -1,11 +1,14 @@
 # Ionic3 Star Rating
 
 You can give your custom icons, custom color and also make it read only. Simple steps to integrate with your Ionic 2 or Ionic 3 projects.
-ionic-star-rating is deprecated, use npm i ionic3-star-rating instead. 
+ionic-star-rating is deprecated, use `npm i ionic3-star-rating` instead. 
 
+Demo: https://stackblitz.com/edit/ionic3-star-rating
 # How to use
 
 ## Step-1
+### Install it
+```npm i ionic3-star-rating```
 
 ### add the ionic3-star-rating component in your page (parent component) as follows
 
@@ -56,7 +59,25 @@ ionic-star-rating is deprecated, use npm i ionic3-star-rating instead.
 
 Subscribe to the event **star-rating:changed** in the constructor of the parent function as follows
 
-`events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});`
+```
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
+
+@Component({
+  selector: 'page-about',
+  templateUrl: 'about.html'
+})
+export class AboutPage {
+
+  constructor(public navCtrl: NavController,
+  public events: Events) {
+     events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});
+  }
+
+}
+```
+
 
 ## Contact
 gmail : melwin.vincent.90@gmail.com
