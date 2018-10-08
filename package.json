@@ -1,6 +1,6 @@
 {
   "name": "ionic3-star-rating",
-  "version": "1.0.5",
+  "version": "1.1.2",
   "description": "A simple component for star rating",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -18,10 +18,12 @@
   "keywords": [
     "ionic3 star rating",
     "ionic star rating",
+    "star rating ionic",
+    "star rating ionic3",
+    "star rating angular2",
     "ionic 3 star rating",
     "ionic3-star-rating",
     "ionic-star-rating",
-    "star rating",
     "ionic3",
     "ionic 3 star-rating"
   ],
