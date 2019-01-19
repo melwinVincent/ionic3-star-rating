@@ -19,7 +19,6 @@ var StarRating = (function () {
         this.defaultIcon = 'ios-star-outline';
         this.Math = Math;
         this.parseFloat = parseFloat;
-        this;
     }
     StarRating.prototype.ngOnInit = function () {
         this.rating = this.rating || 3; //default after input`s initialization

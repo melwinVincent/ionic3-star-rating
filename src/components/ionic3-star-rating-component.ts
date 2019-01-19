@@ -45,7 +45,7 @@ export class StarRating implements ControlValueAccessor, OnInit{
     const id =new Date().getTime();
     const topic = `star-rating:${id}:changed`;
     return{id,topic};
-  })()
+  })();
 
   private _rating : number;
 
@@ -76,10 +76,7 @@ export class StarRating implements ControlValueAccessor, OnInit{
   public get rating(): number{
     return this._rating;
   }
-
-
-
-
+  
   @Output()
   ratingChanged : EventEmitter<number> = new EventEmitter<number>();
 
@@ -99,7 +96,6 @@ export class StarRating implements ControlValueAccessor, OnInit{
   constructor(private events : Events) {
     this.Math = Math;
     this.parseFloat = parseFloat;
-    this
   }
 
   changeRating(event){
