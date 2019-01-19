@@ -1,7 +1,23 @@
+import { OnInit, EventEmitter } from '@angular/core';
 import { Events } from 'ionic-angular';
-export declare class StarRating {
+import { ControlValueAccessor } from '@angular/forms';
+export declare class StarRating implements ControlValueAccessor, OnInit {
     private events;
+    ngOnInit(): void;
+    readonly eventInfo: {
+        id: number;
+        topic: string;
+    };
+    private _rating;
+    private onChange;
+    private onTouched;
+    disabled: boolean;
+    writeValue(obj: number): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    setDisabledState?(isDisabled: boolean): void;
     rating: number;
+    ratingChanged: EventEmitter<number>;
     readonly: string;
     activeColor: string;
     defaultColor: string;
