@@ -50,7 +50,7 @@ export class StarRating {
 
   changeRating(event){
 
-    if(this.readonly && this.readonly === "true") return;
+    if(this.readonly && this.readonly !== "false") return;
     // event is different for firefox and chrome
     this.rating = event.target.id ? parseInt(event.target.id) + 1 : parseInt(event.target.parentElement.id) + 1;
     // subscribe this event to get the changed value in ypour parent compoanent 
