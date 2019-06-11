@@ -4,7 +4,7 @@ import { Events } from 'ionic-angular'
 const HTML_TEMPLATE = `
 <div class="ionic3-star-rating">
   <button *ngFor="let index of [0,1,2,3,4]" id="{{index}}" type="button" ion-button icon-only (click)="changeRating($event)">
-    <ion-icon [ngStyle]="{'color':index < this.Math.round(this.parseFloat(rating)) ? activeColor : defaultColor }" name="{{index < this.Math.round(this.parseFloat(rating)) ? activeIcon : defaultIcon}}"></ion-icon>
+    <ion-icon [ngStyle]="{'color':index < this.Math.round(this.parseFloat(rating)) ? activeColor : defaultColor }" name="{{(rating - index <= 0.5 && rating - index) >= 0.01 ? halfIcon : (index < this.Math.round(this.parseFloat(rating)) ? activeIcon : defaultIcon)}}"></ion-icon>
   </button>
 </div>
 `
@@ -40,6 +40,8 @@ export class StarRating {
   activeIcon : string = 'ios-star';
   @Input()
   defaultIcon : string = 'ios-star-outline';
+  @Input()
+  halfIcon : string = 'ios-star-half';
   Math: any;
   parseFloat : any;
 
