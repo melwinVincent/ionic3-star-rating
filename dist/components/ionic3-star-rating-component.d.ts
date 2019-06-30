@@ -5,7 +5,6 @@ export declare class StarRating implements ControlValueAccessor, OnInit {
     private events;
     ngOnInit(): void;
     readonly eventInfo: {
-        id: number;
         topic: string;
     };
     private _rating;
@@ -23,6 +22,7 @@ export declare class StarRating implements ControlValueAccessor, OnInit {
     defaultColor: string;
     activeIcon: string;
     defaultIcon: string;
+    fontSize: string;
     Math: any;
     parseFloat: any;
     constructor(events: Events);
