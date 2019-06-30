@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Events } from 'ionic-angular'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const HTML_TEMPLATE = `
 <div class="ionic3-star-rating">
@@ -25,11 +26,60 @@ const CSS_STYLE = `
 @Component({
   selector: 'ionic3-star-rating',
   template: HTML_TEMPLATE,
-  styles: [CSS_STYLE]
+  styles: [CSS_STYLE],
+  providers: [
+    {
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: StarRating,
+        multi: true
+    }
+]
 })
-export class StarRating {
-  @Input()
-  rating: number = 3;
+export class StarRating implements ControlValueAccessor, OnInit{
+
+  ngOnInit(): void {
+    this.rating = this.rating || 3; //default after input`s initialization
+  }
+
+  public readonly eventInfo = (()=>{
+    const id =new Date().getTime();
+    const topic = `star-rating:${id}:changed`;
+    return{id,topic};
+  })();
+
+  private _rating : number;
+
+  private onChange : any;
+  private onTouched : any;
+  public disabled : boolean;
+
+  writeValue(obj: number): void {
+    this.rating = obj;
+  }
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    this.readonly = isDisabled ? "true" : "false";
+  }
+
+  @Input() public set rating(val : number){
+    this._rating = val;
+    if(this.onChange){
+      this.onChange(val);
+    }
+  }
+
+  public get rating(): number{
+    return this._rating;
+  }
+  
+  @Output()
+  ratingChanged : EventEmitter<number> = new EventEmitter<number>();
+
   @Input()
   readonly: string = "false";
   @Input()
@@ -54,7 +104,9 @@ export class StarRating {
     // event is different for firefox and chrome
     this.rating = event.target.id ? parseInt(event.target.id) + 1 : parseInt(event.target.parentElement.id) + 1;
     // subscribe this event to get the changed value in ypour parent compoanent 
-    this.events.publish('star-rating:changed', this.rating);
+    this.events.publish(`star-rating:changed`, this.rating); //common event for all instances
+    this.events.publish(this.eventInfo.topic, this.rating); //common event for all instances
+    this.ratingChanged.emit(this.rating)
   }
 
 }

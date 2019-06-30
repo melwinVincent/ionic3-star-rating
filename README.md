@@ -1,3 +1,42 @@
+I have added ControlValueAccessor implementation so the control can now be used in forms (ngModel or formControlName)
+
+``` javascript      
+<form [formGroup]="form">
+<ionic3-star-rating formControlName="mark">
+</ionic3-star-rating>
+</form>
+```
+
+The component can be still used standalone with the same @Input() rating. If is used in form it will be overriden with the form value.
+
+Other changes:
+
+- added @Output() event : (ratingChanged) which can help with using multiple components on 1 page.
+``` javascript
+<ionic3-star-rating (ratingChanged)="log($event)"> // new rating is passed here
+</ionic3-star-rating>
+```
+- introduced unique Ionic Event topic, however left the old common one for compatibility reasons. So now you can subsribe also to Ionic unique event - also will help with using multiple components on 1 page. You can access the unique topic @ViewChild or passing the element reference somehow.
+``` javascript      
+<ionic3-star-rating #rating></ionic3-star-rating>
+...
+//component containing the rating
+@Component({}){
+...
+@ViewChild('rating') rating : any;
+...
+
+constructor(events : Events){
+ events.subscribe(rating.eventInfo.topic, ()=>{console.log("some handler");});
+}
+}
+```
+
+
+
+
+----------------------------
+
 # Ionic3 Star Rating
 
 You can give your custom icons, custom color and also make it read only. Simple steps to integrate with your Ionic 2 or Ionic 3 projects.
