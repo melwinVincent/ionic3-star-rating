@@ -1,14 +1,13 @@
 # Ionic3 Star Rating
 
 You can give your custom icons, custom color, custom font-size and also make it read only. 
-Can use it multiple times in a single page and get the changed rating in the parent component 
-Can also be used inside the form component 
+Can use it multiple times in a single page/multiple pages and get the changed rating in the parent component 
+Can also be used inside the `<form>` component 
 
 Easy to integrate with your Ionic 2 or Ionic 3 projects. 
-
-ionic-star-rating is deprecated, use `npm i ionic3-star-rating` instead. 
-
 Demo: https://stackblitz.com/edit/ionic3-star-rating
+
+For ionic-4 projects please check this package : https://www.npmjs.com/package/ionic4-star-rating
 
 # How to use
 
@@ -32,7 +31,7 @@ Demo: https://stackblitz.com/edit/ionic3-star-rating
     </ionic3-star-rating>
 ```
 
-### inside form component
+### to use inside the `<form>` component
 
 ```
     <form [formGroup]="customForm">
@@ -59,7 +58,8 @@ Demo: https://stackblitz.com/edit/ionic3-star-rating
 * readonly (string): default is set to "false", change to "true" and make it read only. End user won't be able to change the rating then.
 * rating (string or number): default is set to 3. input can be of type **number** or **string** (*assign any number from 1 to 5, floating numbers are also accepted, Math.round(parseFloat(rating) is done for all inputs*). 
 * fontSize (string) : can specify the font-size for the icon ( should be a valid string as used in css, a number followed by letters 'px', default is set to '28px'). 
-* ratingChanged (funtion) : used to handle the rating change in the parent component
+* ratingChanged (funtion) : used to handle the rating change in the parent component and do your stuff
+* formControlName : only if you are using the ionic3-star-rating component inside the `<form>` component  
 
 ## Step-2
 
@@ -82,11 +82,53 @@ Demo: https://stackblitz.com/edit/ionic3-star-rating
     export class ParentPageModule {}
 ```
 
-## Step-3 (optional)
+### To use the ionic3-star-rating component in multiple pages
+
+#### Step-2.1 : create a SharedModule (app.shared.module.ts) in the path src/app/ 
+
+```
+import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { IonicModule } from 'ionic-angular';
+import { StarRating } from 'ionic3-star-rating';
+
+@NgModule({
+  declarations: [ StarRating ],
+  exports: [ StarRating ],
+  imports: [
+    CommonModule, IonicModule
+  ]
+})
+export class SharedModule {}
+
+```
+#### Step-2.2 : import SharedModule in the module.ts of your parent component
+
+```
+
+import { NgModule } from '@angular/core';
+import { IonicPageModule } from 'ionic-angular';
+import { LandingPage } from './landing';
+import { SharedModule } from '../../app/app.shared.module';
+
+@NgModule({
+  declarations: [
+    LandingPage,
+  ],
+  imports: [
+    SharedModule,
+    IonicPageModule.forChild(LandingPage),
+  ],
+})
+export class LandingModule {}
+
+```
+
+## Step-3
 
 ## To get the changed rating in the parent component
 
-### method-1 : using ratingChanged (recommended method)
+### method-1 : (recommended method)
 
 ```
 import { Component } from '@angular/core';
@@ -111,7 +153,7 @@ export class LandingPage {
 
 ```
 
-### method-2 using @ViewChild and Events
+### method-2 : Using @ViewChild and Events
 
 ```
 import { Component, ViewChild } from '@angular/core';
@@ -140,7 +182,7 @@ export class LandingPage {
 
 ```
 
-## To get the changed rating in the parent component if you want to use ionic3-star-rating component inside form component  
+## To get the changed rating in the parent component if you want to use ionic3-star-rating component inside `<form>` component  
 
 ```
 import { Component, ViewChild } from '@angular/core';
@@ -176,7 +218,7 @@ export class LandingPage {
 ```
 
 
-## multiple usage of the component in same parent page
+## Multiple usage of the component in same parent page
 
 ### parent-component.html
 
@@ -237,7 +279,7 @@ export class LandingPage {
 }
 ```
 
-#### method-2 using @ViewChild and Events
+#### method-2 : Using @ViewChild and Events
 
 ```
 import { Component, ViewChild } from '@angular/core';
@@ -272,7 +314,7 @@ export class LandingPage {
 
 ```
 
-## multiple usage of the component in same form of the parent page
+## Multiple usage of ionic3-star-rating component in the same `<form>` of the parent page
 
 ### parent-component.html
 ```
