@@ -7,7 +7,7 @@ Can also be used inside the `<form>` component
 Easy to integrate with your Ionic 2 or Ionic 3 projects. 
 Demo: https://stackblitz.com/edit/ionic3-star-rating
 
-** For ionic-4 projects please check this package : https://www.npmjs.com/package/ionic4-star-rating **
+**For ionic-4 projects please check this package : https://www.npmjs.com/package/ionic4-star-rating**
 
 # How to use
 
