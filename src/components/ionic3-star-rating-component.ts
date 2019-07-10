@@ -33,7 +33,7 @@ const CSS_STYLE = `
 export class StarRating implements ControlValueAccessor, OnInit{
 
   ngOnInit(): void {
-    this.rating = Number(this.rating) || 3; //default after input`s initialization
+    this.rating = isNaN(this.rating) ? 3 : this.rating; //default after input`s initialization
   }
 
   public readonly eventInfo = (()=>{
