@@ -1,8 +1,10 @@
 # Ionic3 Star Rating
 
-You can give your custom icons, custom color, custom font-size and also make it read only. 
-Can use it multiple times in a single page/multiple pages and get the changed rating in the parent component 
-Can also be used inside the `<form>` component 
+You can give your custom icons, custom color, custom font-size and also make it read-only.
+You can change the total star counts to whatever number you want (default is set to 5 stars).
+Supports Half star rating (single tap makes the half star active , tap again to make it the full star active, rating value steps by 0.5 and 1 respectively).
+You can use it multiple times in a single page/multiple pages and get the changed rating value in the parent component 
+You can also use it inside the `<form>` component (multiple use inside `<form>` is also supported)
 
 Easy to integrate with your Ionic 2 or Ionic 3 projects. 
 Demo: https://stackblitz.com/edit/ionic3-star-rating
@@ -53,13 +55,16 @@ Demo: https://stackblitz.com/edit/ionic3-star-rating
 
 * activeIcon (string) : can specify the icon name for active rating (icon name should be from the https://ionicframework.com/docs/ionicons/  ,  default is set to 'ios-star');
 * defaultIcon (string): can specify the default icon name (icon name should be from the https://ionicframework.com/docs/ionicons/  , default is set to 'ios-star-outline');
+* halfIcon (string) : can specify the icon name for active half rating (icon name should be from the https://ionicframework.com/docs/ionicons/  ,  default is set to 'ios-star-half');
+* halfStar (string) : to support half star rating set this to 'true', default is set to 'false'. The rating value then steps by 0.5 instead of 1. Single tap on defaultIcon makes it halfIcon , tap on halfIcon to make it activeIcon and tap on activeIcon makes it halfIcon again. For examp 
+* maxRating (number) : can specify the total number of icons to be displayed, default is set to 5. You may change this to 10 star rating component or 7 star rating component depending on your requirement.
 * activeColor (string): can specify the active color for the active rating icon (should be a valid color code, default is set to '#488aff')
 * defaultColor (string): can specify the default color for the rating icon (should be a valid color code, default is set to '#f4f4f4')
 * readonly (string): default is set to "false", change to "true" and make it read only. End user won't be able to change the rating then.
 * rating (string or number): default is set to 3. input can be of type **number** or **string** (*assign any number from 1 to 5, floating numbers are also accepted, Math.round(parseFloat(rating) is done for all inputs*). 
 * fontSize (string) : can specify the font-size for the icon ( should be a valid string as used in css, a number followed by letters 'px', default is set to '28px'). 
 * ratingChanged (funtion) : used to handle the rating change in the parent component and do your stuff
-* formControlName : only if you are using the ionic3-star-rating component inside the `<form>` component  
+* formControlName : only if you are using the ionic3-star-rating component inside the `<form>` component
 
 ## Step-2
 
@@ -377,6 +382,12 @@ export class LandingPage {
         // do your stuff
     }
 
+```
+### common event for all instances in a page
+```
+this.events.subscribe('star-rating:changed', (rating) => {
+    console.log("changed rating: ",rating);
+});
 ```
 
 ## Contact
