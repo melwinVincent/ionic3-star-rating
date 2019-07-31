@@ -1,10 +1,14 @@
 # Ionic3 Star Rating
 
-You can give your custom icons, custom color, custom font-size and also make it read-only.
-You can specify the total number of icons to be displayed, default is set to 5. You may change this to 10 star rating component or 7 star rating component depending on your requirement
-Supports Half star rating. The rating value then steps by 0.5 instead of 1. Single tap on defaultIcon makes it halfIcon, tap on halfIcon makes it activeIcon and tap on activeIcon makes it halfIcon again.
-You can use it multiple times in a single page/multiple pages and get the changed rating value in the parent component 
-You can also use it inside the `<form>` component (multiple use inside `<form>` is also supported)
+You can give your custom icons, custom color, custom font-size and also make it read-only.  
+
+You can specify the total number of icons to be displayed, default is set to 5. You may change this to 10 star rating component or 7 star rating component depending on your requirement.  
+
+Supports Half star rating. The rating value then steps by 0.5 instead of 1. Single tap on defaultIcon makes it halfIcon, tap on halfIcon makes it activeIcon and tap on activeIcon makes it halfIcon again.  
+
+You can use it multiple times in a single page/multiple pages and get the changed rating value in the parent component.  
+
+You can also use it inside the `<form>` component (multiple use inside `<form>` is also supported).  
 
 Easy to integrate with your Ionic 2 or Ionic 3 projects. 
 Demo: https://stackblitz.com/edit/ionic3-star-rating
