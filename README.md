@@ -4,9 +4,8 @@ You can give your custom icons, custom color, custom font-size and also make it 
 
 You can specify the total number of icons to be displayed, default is set to 5. You may change this to 10 star rating component or 7 star rating component depending on your requirement.  
 
-Supports Half star rating.  
-The rating value then steps by 0.5 instead of 1.  
-Single tap on default-star-icon changes it to half-star-icon, tap on half-star-icon changes it to full-star-icon and tap on full-star-icon changes it to half-star-icon.  
+**Supports Half Star Rating.**    
+Single tap on default-star-icon changes it to half-star-icon, tap on half-star-icon changes it to full-star-icon and tap on full-star-icon changes it to half-star-icon. The rating value then steps by 0.5 instead of 1.  
 
 You can use it multiple times in a single page/multiple pages and get the changed rating value in the parent component.  
 
