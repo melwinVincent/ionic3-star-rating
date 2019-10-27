@@ -92,48 +92,6 @@ Demo: https://stackblitz.com/edit/ionic3-star-rating
     export class ParentPageModule {}
 ```
 
-### To use the ionic3-star-rating component in multiple pages
-
-#### Step-2.1 : create a SharedModule (app.shared.module.ts) in the path src/app/ 
-
-```
-import { NgModule } from '@angular/core';
-import { CommonModule } from "@angular/common";
-import { IonicModule } from 'ionic-angular';
-import { StarRating } from 'ionic3-star-rating';
-
-@NgModule({
-  declarations: [ StarRating ],
-  exports: [ StarRating ],
-  imports: [
-    CommonModule, IonicModule
-  ]
-})
-export class SharedModule {}
-
-```
-#### Step-2.2 : import SharedModule in the module.ts of your parent component
-
-```
-
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { LandingPage } from './landing';
-import { SharedModule } from '../../app/app.shared.module';
-
-@NgModule({
-  declarations: [
-    LandingPage,
-  ],
-  imports: [
-    SharedModule,
-    IonicPageModule.forChild(LandingPage),
-  ],
-})
-export class LandingModule {}
-
-```
-
 ## Step-3
 
 ## To get the changed rating in the parent component
