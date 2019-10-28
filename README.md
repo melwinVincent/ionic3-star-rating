@@ -12,7 +12,7 @@ You can use it multiple times in a single page/multiple pages and get the change
 You can also use it inside the `<form>` component (multiple use inside `<form>` is also supported).  
 
 Easy to integrate with your Ionic 2 or Ionic 3 projects. 
-Demo: https://stackblitz.com/edit/ionic3-star-rating
+Demo: https://stackblitz.com/edit/ionic3-star-rating-melwin
 
 **For ionic-4 projects please check this package : https://www.npmjs.com/package/ionic4-star-rating**
 
