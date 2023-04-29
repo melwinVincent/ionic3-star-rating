@@ -33,7 +33,7 @@
   "devDependencies": {
     "@angular/common": "5.0.0",
     "@angular/compiler": "5.0.0",
-    "@angular/compiler-cli": "5.0.0",
+    "@angular/compiler-cli": "15.2.8",
     "@angular/core": "5.0.0",
     "@angular/forms": "5.0.0",
     "@angular/platform-browser": "5.0.0",
